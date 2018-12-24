@@ -19,7 +19,7 @@ class APIView_class(APIView):
 	serializer_class = HelloSerializer
 
 	def get(self, request, format=None):
-		this_is_list = ['this a list', "fuck this list", "seriously fuck it"]
+		this_is_list = ['yellow', "red", "green"]
 		return Response({"message": "this is sample json response", "list": this_is_list})
 
 
@@ -56,9 +56,9 @@ class Viewset_class(viewsets.ViewSet):
 	
 	def list(self, request):
 		a_viewset = [
-		"This is a list", 
-		"and it fucking sucks",
-		"looks like a dead son to me."
+		"red", 
+		"yellow",
+		"green"
 		]
 		return Response({"message": "hello", "a_viewset": a_viewset})
 
@@ -108,7 +108,7 @@ class Example_APIView_class(APIView):
 		return Response(serializers.data)
 
 
-#Same as the babove class but here we are using generics view. 
+#Same as the above class but here we are using generics view. 
 class Example_APIView_generics_class(generics.ListAPIView):
 	
 	queryset = models.UserProfile.objects.all()
